@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jasmine2-cheatsheet by lennonjesus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Jasmine2-cheatsheet</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/lennonjesus/jasmine2-cheatsheet" class="btn">View on GitHub</a>
+      <a href="https://github.com/lennonjesus/jasmine2-cheatsheet/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/lennonjesus/jasmine2-cheatsheet/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="" class="anchor" href="#" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://jasmine.github.io"><img src="https://cdn.rawgit.com/lennonjesus/jasmine2-cheatsheet/master/images/jasmine-cheatsheet-logo.svg" width="400px"></a>
+</h1>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">describe</span>(<span class="pl-s"><span class="pl-pds">"</span>Jasmine Cheatsheet<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>() {
+  <span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">"</span>is your Swiss Army knife!<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>() {
+    <span class="pl-en">expect</span>(helpYou).<span class="pl-en">toUseJasmineLikeAPro</span>();
+  });
+
+  <span class="pl-en">describe</span>(<span class="pl-s"><span class="pl-pds">"</span>Credits<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> () {
+    <span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">"</span>is based on the Official Jasmine Documentation<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> () {
+      <span class="pl-en">expected</span>(<span class="pl-s"><span class="pl-pds">"</span>http://jasmine.github.io/edge/introduction.html<span class="pl-pds">"</span></span>).<span class="pl-en">shouldBeVisited</span>();
+    });
+  });
+
+  <span class="pl-en">describe</span>(<span class="pl-s"><span class="pl-pds">"</span>Contribution<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> () {
+    <span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">"</span>is free to fork and contribute<span class="pl-pds">"</span></span>, <span class="pl-k">function</span> () {
+      <span class="pl-en">expected</span>(forks).<span class="pl-smi">and</span>.<span class="pl-en">pullRequests</span>();
+    });
+  });
+
+  <span class="pl-en">afterAll</span>(<span class="pl-k">function</span>() {
+    <span class="pl-k">var</span> author <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Lennon Jesus<span class="pl-pds">"</span></span>;
+  });
+});</pre></div>
+
+<h5>
+<a id="current-jasmine-version" class="anchor" href="#current-jasmine-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Current Jasmine version:</h5>
+
+<p><a href="http://badge.fury.io/js/jasmine"><img src="https://badge.fury.io/js/jasmine.svg" alt="npm version"></a></p>
+
+<h3>
+<a id="basic-structure" class="anchor" href="#basic-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic Structure</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">describe</span>(<span class="pl-s"><span class="pl-pds">"</span>A basic Jasmine structure<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>() {
+
+  <span class="pl-k">var</span> trueValue <span class="pl-k">=</span> <span class="pl-c1">false</span>;
+
+  <span class="pl-en">beforeEach</span>(<span class="pl-k">function</span>() {
+    <span class="pl-c">// initialization code...</span>
+    <span class="pl-c">// mocks...</span>
+    <span class="pl-c">// spies...</span>
+
+    trueValue <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+  });
+
+  <span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">"</span>should be true<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>() {
+      <span class="pl-en">expect</span>(trueValue).<span class="pl-en">toBe</span>(<span class="pl-c1">true</span>);
+  });
+
+  <span class="pl-en">afterEach</span>(<span class="pl-k">function</span>() {
+    <span class="pl-c">// tear down...</span>
+    <span class="pl-c">// good bye...</span>
+    <span class="pl-c">// finish him...</span>
+    trueValue <span class="pl-k">=</span> <span class="pl-c1">false</span>;
+  });
+});</pre></div>
+
+<h3>
+<a id="spies-how-to" class="anchor" href="#spies-how-to" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spies how to...</h3>
+
+<p><strong>...create a spy</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">spyOn</span>(obj, <span class="pl-s"><span class="pl-pds">'</span>method<span class="pl-pds">'</span></span>);
+
+<span class="pl-smi">jasmine</span>.<span class="pl-en">createSpy</span>(<span class="pl-s"><span class="pl-pds">'</span>optional name<span class="pl-pds">'</span></span>);
+
+<span class="pl-smi">jasmine</span>.<span class="pl-en">createSpyObj</span>(<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>fnct1<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>fnct2<span class="pl-pds">'</span></span>, <span class="pl-k">...</span>, <span class="pl-s"><span class="pl-pds">'</span>fnctN<span class="pl-pds">'</span></span>]);</pre></div>
+
+<p><strong>...modify the behavior of a spy</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">spyOn</span>(obj, <span class="pl-s"><span class="pl-pds">'</span>method<span class="pl-pds">'</span></span>).<span class="pl-c1">returnValue</span>(val); <span class="pl-c">// all calls to the function will return a specific value</span>
+
+<span class="pl-en">spyOn</span>(obj, <span class="pl-s"><span class="pl-pds">'</span>method<span class="pl-pds">'</span></span>).<span class="pl-en">returnValues</span>(val1, val2); <span class="pl-c">// all calls to the function will return specific values in order until it reaches the end of the return values list, at which point it will return undefined for all subsequent calls</span>
+
+<span class="pl-en">spyOn</span>(obj, <span class="pl-s"><span class="pl-pds">'</span>method<span class="pl-pds">'</span></span>).<span class="pl-en">callFake</span>(fn); <span class="pl-c">//all calls to the spy will delegate to the supplied function</span>
+
+<span class="pl-en">spyOn</span>(obj, <span class="pl-s"><span class="pl-pds">'</span>method<span class="pl-pds">'</span></span>).<span class="pl-en">callThrough</span>(); <span class="pl-c">// it will delegate to the actual implementation</span>
+
+<span class="pl-en">spyOn</span>(obj, <span class="pl-s"><span class="pl-pds">'</span>method<span class="pl-pds">'</span></span>).<span class="pl-en">throwError</span>(err); <span class="pl-c">//all calls to the spy will throw the specified value as an error</span>
+
+<span class="pl-en">spyOn</span>(obj, <span class="pl-s"><span class="pl-pds">'</span>method<span class="pl-pds">'</span></span>).<span class="pl-en">stub</span>(); <span class="pl-c">// the original stubbing behavior can be returned at any time with and.stub</span></pre></div>
+
+<p><strong>...verify interactions</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">obj</span>.<span class="pl-c1">method</span>.<span class="pl-smi">calls</span>.<span class="pl-en">count</span>(); <span class="pl-c">//returns the number of times the spy was called</span>
+
+<span class="pl-smi">obj</span>.<span class="pl-c1">method</span>.<span class="pl-smi">calls</span>.<span class="pl-en">any</span>(); <span class="pl-c">//returns false if the spy has not been called at all, and then true once at least one call happens</span>
+
+<span class="pl-smi">obj</span>.<span class="pl-c1">method</span>.<span class="pl-smi">calls</span>.<span class="pl-c1">reset</span>(); <span class="pl-c">// clears all tracking for a spy</span></pre></div>
+
+<p><strong>...inspect calls</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">obj</span>.<span class="pl-c1">method</span>.<span class="pl-smi">calls</span>.<span class="pl-en">first</span>(); <span class="pl-c">// returns the context (the this) and arguments for the first call</span>
+
+<span class="pl-smi">obj</span>.<span class="pl-c1">method</span>.<span class="pl-smi">calls</span>.<span class="pl-en">mostRecent</span>();
+
+<span class="pl-smi">obj</span>.<span class="pl-c1">method</span>.<span class="pl-smi">calls</span>.<span class="pl-c1">all</span>();</pre></div>
+
+<p><strong>...call description object</strong></p>
+
+<div class="highlight highlight-source-js"><pre>{
+  object<span class="pl-k">:</span> {<span class="pl-k">...</span>},  <span class="pl-c">// 'this' object</span>
+  args<span class="pl-k">:</span> []        <span class="pl-c">// the arguments</span>
+}</pre></div>
+
+<h3>
+<a id="matchers" class="anchor" href="#matchers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Matchers</h3>
+
+<p><strong>toBe</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(obj).<span class="pl-en">toBe</span>(<span class="pl-c1">null</span>);M</pre></div>
+
+<p><strong>toEqual</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(obj).<span class="pl-en">toEqual</span>({id<span class="pl-k">:</span> <span class="pl-c1">7</span>});</pre></div>
+
+<p><strong>toMatch</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(msg).<span class="pl-en">toMatch</span>(<span class="pl-sr"><span class="pl-pds">/</span>abc<span class="pl-pds">/</span></span>);</pre></div>
+
+<p><strong>toBeDefined</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(obj).<span class="pl-en">toBeDefined</span>();</pre></div>
+
+<p><strong>toBeUndefined</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(obj).<span class="pl-en">toBeUndefined</span>();</pre></div>
+
+<p><strong>toBeTruthy</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>).<span class="pl-en">toBeTruthy</span>();</pre></div>
+
+<p><strong>toBeFalsy</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(obj).<span class="pl-en">toBeFalsy</span>();</pre></div>
+
+<p><strong>toContain</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(arr).<span class="pl-en">toContain</span>();</pre></div>
+
+<p><strong>toBeLessThan</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(<span class="pl-c1">21</span>).<span class="pl-en">toBeLessThan</span>(<span class="pl-c1">42</span>);</pre></div>
+
+<p><strong>toBeGreaterThan</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(<span class="pl-c1">42</span>).<span class="pl-en">toBeGreaterThan</span>(<span class="pl-c1">21</span>);</pre></div>
+
+<p><strong>toBeCloseTo</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(<span class="pl-c1">1.2</span>).<span class="pl-en">toBeCloseTo</span>(<span class="pl-c1">1.23</span>, <span class="pl-c1">1</span>);</pre></div>
+
+<p><strong>toThrow</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(fnct).<span class="pl-en">toThrow</span>();</pre></div>
+
+<p><strong>toThrowError</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(obj).<span class="pl-en">toThrowError</span>();</pre></div>
+
+<p><strong>toBeNull</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">expect</span>(obj).<span class="pl-en">toBeNull</span>();</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/lennonjesus/jasmine2-cheatsheet">Jasmine2-cheatsheet</a> is maintained by <a href="https://github.com/lennonjesus">lennonjesus</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
