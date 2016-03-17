@@ -58,7 +58,7 @@ describe("A basic Jasmine structure", function() {
 
 ### Spies how to...
 
-** ...create a spy **
+**...create a spy**
 
 ```javascript
 spyOn(obj, 'method');
@@ -68,7 +68,7 @@ jasmine.createSpy('optional name');
 jasmine.createSpyObj('name', ['fnct1', 'fnct2', ..., 'fnctN']);
 ```
 
-** ...modify the behavior of a spy **
+**...modify the behavior of a spy**
 
 ```javascript
 spyOn(obj, 'method').returnValue(val); // all calls to the function will return a specific value
@@ -84,7 +84,7 @@ spyOn(obj, 'method').throwError(err); //all calls to the spy will throw the spec
 spyOn(obj, 'method').stub(); // the original stubbing behavior can be returned at any time with and.stub
 ```
 
-** ...verify interactions **
+**...verify interactions**
 
 ```javascript
 obj.method.calls.count(); //returns the number of times the spy was called
@@ -94,7 +94,7 @@ obj.method.calls.any(); //returns false if the spy has not been called at all, a
 obj.method.calls.reset(); // clears all tracking for a spy
 ```
 
-** ...inspect calls **
+**...inspect calls**
 
 ```javascript
 obj.method.calls.first(); // returns the context (the this) and arguments for the first call
@@ -105,7 +105,7 @@ obj.method.calls.all();
 ```
 
 
-** ...call description object **
+**...call description object**
 
 ```javascript
 {
@@ -116,85 +116,85 @@ obj.method.calls.all();
 
 ### Matchers
 
-** toBe **
+**toBe**
 
 ```javascript
 expect(obj).toBe(null);M
 ```
 
-** toEqual **
+**toEqual**
 
 ```javascript
 expect(obj).toEqual({id: 7});
 ```
 
-** toMatch **
+**toMatch**
 
 ```javascript
 expect(msg).toMatch(/abc/);
 ```
 
-** toBeDefined **
+**toBeDefined**
 
 ```javascript
 expect(obj).toBeDefined();
 ```
 
-** toBeUndefined **
+**toBeUndefined**
 
 ```javascript
 expect(obj).toBeUndefined();
 ```
 
-** toBeTruthy **
+**toBeTruthy**
 
 ```javascript
 expect('a').toBeTruthy();
 ```
 
-** toBeFalsy **
+**toBeFalsy**
 
 ```javascript
 expect(obj).toBeFalsy();
 ```
 
-** toContain **
+**toContain**
 
 ```javascript
 expect(arr).toContain();
 ```
 
-** toBeLessThan **
+**toBeLessThan**
 
 ```javascript
 expect(21).toBeLessThan(42);
 ```
 
-** toBeGreaterThan **
+**toBeGreaterThan**
 
 ```javascript
 expect(42).toBeGreaterThan(21);
 ```
 
-** toBeCloseTo **
+**toBeCloseTo**
 
 ```javascript
 expect(1.2).toBeCloseTo(1.23, 1);
 ```
 
-** toThrow **
+**toThrow**
 
 ```javascript
 expect(fnct).toThrow();
 ```
 
-** toThrowError **
+**toThrowError**
 
 ```javascript
 expect(obj).toThrowError();
 ```
 
-** toBeNull **
+**toBeNull**
 
 ```javascript
 expect(obj).toBeNull();
