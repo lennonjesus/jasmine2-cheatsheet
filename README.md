@@ -1,4 +1,4 @@
-# [<img src="images/jasmine-cheatsheet-logo.svg" width="400px" />](http://jasmine.github.io)
+# [<img src="https://cdn.rawgit.com/lennonjesus/jasmine2-cheatsheet/master/images/jasmine-cheatsheet-logo.svg" width="400px" />](http://jasmine.github.io)
 
 
 ```javascript
