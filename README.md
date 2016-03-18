@@ -9,7 +9,7 @@ describe("Jasmine Cheatsheet", function() {
 
   describe("Credits", function () {
     it("is based on the Official Jasmine Documentation", function () {
-      expected("http://jasmine.github.io/edge/introduction.html").shouldBeVisited();
+      expected("[http://jasmine.github.io/edge/introduction.html](http://jasmine.github.io/edge/introduction.html)").shouldBeVisited();
     });
   });
 
