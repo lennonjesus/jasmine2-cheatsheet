@@ -71,17 +71,17 @@ jasmine.createSpyObj('name', ['fnct1', 'fnct2', ..., 'fnctN']);
 **...modify the behavior of a spy**
 
 ```javascript
-spyOn(obj, 'method').returnValue(val); // all calls to the function will return a specific value
+spyOn(obj, 'method').and.returnValue(val); // all calls to the function will return a specific value
 
-spyOn(obj, 'method').returnValues(val1, val2); // all calls to the function will return specific values in order until it reaches the end of the return values list, at which point it will return undefined for all subsequent calls
+spyOn(obj, 'method').and.returnValues(val1, val2); // all calls to the function will return specific values in order until it reaches the end of the return values list, at which point it will return undefined for all subsequent calls
 
-spyOn(obj, 'method').callFake(fn); //all calls to the spy will delegate to the supplied function
+spyOn(obj, 'method').and.callFake(fn); //all calls to the spy will delegate to the supplied function
 
-spyOn(obj, 'method').callThrough(); // it will delegate to the actual implementation
+spyOn(obj, 'method').and.callThrough(); // it will delegate to the actual implementation
 
-spyOn(obj, 'method').throwError(err); //all calls to the spy will throw the specified value as an error
+spyOn(obj, 'method').and.throwError(err); //all calls to the spy will throw the specified value as an error
 
-spyOn(obj, 'method').stub(); // the original stubbing behavior can be returned at any time with and.stub
+spyOn(obj, 'method').and.stub(); // the original stubbing behavior can be returned at any time with and.stub
 ```
 
 **...verify interactions**
@@ -198,4 +198,14 @@ expect(obj).toThrowError();
 
 ```javascript
 expect(obj).toBeNull();
+```
+
+**not**
+
+```javascript
+expect(obj).not.toEqual({id: 7});
+expect(msg).not.toMatch(/abc/);
+expect(obj).not.toBeUndefined();
+expect(obj).not.toBeNull();
+expect(obj).not.xxx...
 ```
